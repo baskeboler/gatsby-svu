@@ -10,7 +10,8 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import "./layout.scss"
+import MenuBar from "./menubar"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -21,27 +22,31 @@ const Layout = ({ children }) => (
             title
           }
         }
+        bg: file(relativePath: { eq: "bg-overlay.png" }) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
     render={data => (
-      <>
+      <div
+        className="container"
+        style={{
+          background: `url(${data.bg.childImageSharp.fluid.src})`,
+          backgroundSize: "unset",
+        }}
+      >
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+        <MenuBar />
+
+        <main>{children}</main>
+        <div className="footer">
+          <p>♥ from the Yeoman team</p>
         </div>
-      </>
+      </div>
     )}
   />
 )

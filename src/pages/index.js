@@ -1,21 +1,40 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
-
-const IndexPage = () => (
+import { Carousel, CarouselItem } from "react-bootstrap"
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Carousel slide fade wrap>
+      <CarouselItem>
+        <Img fluid={data.carousel1.childImageSharp.fluid} />
+      </CarouselItem>
+      <CarouselItem>
+        <Img fluid={data.carousel2.childImageSharp.fluid} />
+      </CarouselItem>
+    </Carousel>
   </Layout>
 )
 
+export const query = graphql`
+  query {
+    carousel1: file(relativePath: { eq: "carousel1.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    carousel2: file(relativePath: { eq: "carousel2.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 export default IndexPage

@@ -9,6 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { GoogleFont, TypographyStyle } from "react-typography"
+
+import typography from "../utils/typography"
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -68,7 +71,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <TypographyStyle typography={typography} />{" "}
+      <GoogleFont typography={typography} />
+    </Helmet>
   )
 }
 
