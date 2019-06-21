@@ -7,6 +7,7 @@ import BgImg from "gatsby-background-image"
 import SEO from "../components/seo"
 import Overlay from "../components/overlay"
 import { Carousel, CarouselItem, Row, Col } from "react-bootstrap"
+import { PlayIcon } from "../components/icon"
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
@@ -35,6 +36,7 @@ const IndexPage = ({ data }) => (
             style={{ width: "100%", height: "40vh" }}
             fluid={data.rastreo.childImageSharp.fluid}
           />
+          <PlayIcon />
         </Overlay>
       </Col>
       <Col xs={6} className="m-0">
@@ -43,6 +45,7 @@ const IndexPage = ({ data }) => (
             style={{ width: "100%", height: "40vh" }}
             fluid={data.videoverificacion.childImageSharp.fluid}
           />
+          <PlayIcon />
         </Overlay>
       </Col>
     </Row>

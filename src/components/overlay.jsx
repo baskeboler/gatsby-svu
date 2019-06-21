@@ -26,7 +26,6 @@ export default props => (
     style={{ padding: 0, margin: 0, display: "block", position: "relative" }}
     className="overlay"
   >
-    {props.children}
-    <Overlay />
+    {[<Overlay />, ...props.children]}
   </div>
 )
