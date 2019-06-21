@@ -36,9 +36,7 @@ const Layout = ({ children }) => (
       <BgImg fluid={data.bg.childImageSharp.fluid}>
         <Container>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <Row>
-            <MenuBar />
-          </Row>
+          <MenuBar />
           <Row>
             <Col>
               <main>{children}</main>

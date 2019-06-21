@@ -32,7 +32,7 @@ const MenuBar = () => {
             <Link to="/">la empresa</Link>
           </NavItem>
           {serviciosMenu}
-          <NavItem>
+          <NavItem className="nav-item">
             <Link to="/contacto">contacto</Link>
           </NavItem>
         </Nav>
