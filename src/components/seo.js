@@ -72,8 +72,8 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <TypographyStyle typography={typography} />{" "}
       <GoogleFont typography={typography} />
+      <TypographyStyle typography={typography} />
     </Helmet>
   )
 }

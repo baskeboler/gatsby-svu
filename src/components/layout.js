@@ -8,11 +8,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
+import BgImg from "gatsby-background-image"
 import Header from "./header"
 import "./layout.scss"
 import MenuBar from "./menubar"
-
+import { Container, Row, Col } from "react-bootstrap"
+import { Footer } from "./footer"
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -24,7 +25,7 @@ const Layout = ({ children }) => (
         }
         bg: file(relativePath: { eq: "bg-overlay.png" }) {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 4000) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -32,21 +33,20 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div
-        className="container"
-        style={{
-          background: `url(${data.bg.childImageSharp.fluid.src})`,
-          backgroundSize: "unset",
-        }}
-      >
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <MenuBar />
-
-        <main>{children}</main>
-        <div className="footer">
-          <p>♥ from the Yeoman team</p>
-        </div>
-      </div>
+      <BgImg fluid={data.bg.childImageSharp.fluid}>
+        <Container>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <Row>
+            <MenuBar />
+          </Row>
+          <Row>
+            <Col>
+              <main>{children}</main>
+            </Col>
+          </Row>
+          <Footer />
+        </Container>
+      </BgImg>
     )}
   />
 )

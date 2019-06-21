@@ -8,7 +8,7 @@ import Img from "gatsby-image"
 const Contacto = ({ data }) => (
   <Layout>
     <SEO title="Contacto" />
-    <Img fluid={data.file.childImageSharp.fluid} />
+    <Img fluid={data.file.childImageSharp.fluid} fadeIn={true} />
     <div className="row contact-section rounded">
       <div className="col-12">
         <form className="rounded p-4">
@@ -57,7 +57,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "contacto.jpg" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 800, fit: COVER, jpegProgressive: false) {
           ...GatsbyImageSharpFluid
         }
       }

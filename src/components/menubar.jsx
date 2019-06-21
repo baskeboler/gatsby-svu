@@ -1,19 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
 import "./layout.scss"
-import { Navbar, NavDropdown, NavItem, NavbarBrand, Nav } from "react-bootstrap"
-import NavbarToggle from "react-bootstrap/NavbarToggle"
+import { Navbar, NavDropdown, NavItem, Nav } from "react-bootstrap"
 const Submenu = ({ title, items }) => {
   return (
     <NavDropdown title={title}>
       {items.map(i => (
-        <Nav key={`${i.label}-${i.url}`}>
-          <NavItem>
-            <Link to={i.url} className="dropdown-item">
-              {i.label}
-            </Link>
-          </NavItem>
-        </Nav>
+        <NavDropdown.Item key={`${i.label}-${i.url}`}>
+          <Link to={i.url}>{i.label}</Link>
+        </NavDropdown.Item>
       ))}
     </NavDropdown>
   )
@@ -28,20 +23,20 @@ const MenuBar = () => {
   ]
   const serviciosMenu = <Submenu items={serviciosMenuItems} title="servicios" />
   return (
-    <Navbar expand="lg" variant="light">
-      <NavbarToggle />
-      <NavbarBrand className="brand-logo" />
-      <Nav className="nav-link">
-        <NavItem>
-          <Link to="/">la empresa</Link>
-        </NavItem>
-      </Nav>
-      {serviciosMenu}
-      <Nav className="nav-link">
-        <NavItem>
-          <Link to="/contacto">contacto</Link>
-        </NavItem>
-      </Nav>
+    <Navbar collapseOnSelect expand="lg">
+      <Navbar.Brand className="brand-logo" />
+      <Navbar.Toggle aria-controls="the-navs" />
+      <Navbar.Collapse id="the-navs">
+        <Nav className="mr-auto navbar-nav">
+          <NavItem className="nav-item">
+            <Link to="/">la empresa</Link>
+          </NavItem>
+          {serviciosMenu}
+          <NavItem>
+            <Link to="/contacto">contacto</Link>
+          </NavItem>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   )
 }
