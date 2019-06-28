@@ -57,6 +57,7 @@ const Contacto = ({ data }) => (
               </div>
             </div>
           </div>
+          <input type="hidden" name="form-name" value="contact-form" />
           <footer>
             <button
               className="btn btn-primary px-5"
