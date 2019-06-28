@@ -4,7 +4,7 @@ import "./layout.scss"
 import { Navbar, NavDropdown, NavItem, Nav } from "react-bootstrap"
 const Submenu = ({ title, items }) => {
   return (
-    <NavDropdown title={title}>
+    <NavDropdown as="li" title={title}>
       {items.map(i => (
         <NavDropdown.Item key={`${i.label}-${i.url}`}>
           <Link to={i.url}>{i.label}</Link>
@@ -27,12 +27,12 @@ const MenuBar = () => {
       <Navbar.Brand className="brand-logo" />
       <Navbar.Toggle aria-controls="the-navs" />
       <Navbar.Collapse id="the-navs">
-        <Nav className="mr-auto navbar-nav">
-          <NavItem className="nav-item">
+        <Nav as="ul" className="mr-auto navbar-nav">
+          <NavItem as="li" className="nav-item">
             <Link to="/">la empresa</Link>
           </NavItem>
           {serviciosMenu}
-          <NavItem className="nav-item">
+          <NavItem as="li" className="nav-item">
             <Link to="/contacto">contacto</Link>
           </NavItem>
         </Nav>

@@ -50,7 +50,7 @@ const IndexPage = ({ data }) => (
       </Col>
     </Row>
     <Row className="bienvenidos">
-      <Col>
+      <Col xs={12}>
         <h1>BIENVENIDOS!</h1>
         <p>
           Con más de 25 años de historia, SVU es una empresa Uruguaya atendida
@@ -82,7 +82,7 @@ export const query = graphql`
     }
     bg: file(relativePath: { eq: "bg-overlay.png" }) {
       childImageSharp {
-        fluid(maxWidth: 4000) {
+        fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid
         }
       }

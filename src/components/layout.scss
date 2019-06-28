@@ -74,6 +74,7 @@ body {
   // background-color: #e30613;
   // height: 16em;
   // opacity: 0.85;
+  font-size: 1em;
   width: 100%;
   //   margin-bottom: 0.5rem;
   display: flex;
@@ -93,7 +94,9 @@ body {
     font-size: 1.5em;
     text-transform: uppercase;
     font-weight: 700;
-
+    .nav-link {
+      color: unset;
+    }
     a,
     a.nav-link.dropdown-toggle a {
       &:hover,
@@ -102,6 +105,10 @@ body {
         color: #e30613;
       }
     }
+  }
+  .dropdown-menu {
+    font-size: 1em;
+    background: rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -172,26 +179,26 @@ body {
   border-top: 0.05rem solid #e5e5e5;
 }
 
-.bienvenidos {
-  margin-top: 2em;
+// .bienvenidos {
+//   margin-top: 2em;
 
-  color: #838282 h1, h2, h3, h4, h5 {
-    font-family: Roboto Condensed, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0;
-    font-weight: 600;
-  }
+//   color: #838282 h1, h2, h3, h4, h5 {
+//     font-family: Roboto Condensed, sans-serif;
+//     text-transform: uppercase;
+//     letter-spacing: 0;
+//     font-weight: 600;
+//   }
 
-  h1 {
-    font-size: 4em;
-  }
+//   h1 {
+//     font-size: 4em;
+//   }
 
-  p {
-    font-family: Roboto Condensed, sans-serif;
-    font-size: 2em;
-    font-weight: 900;
-  }
-}
+//   p {
+//     font-family: Roboto Condensed, sans-serif;
+//     font-size: 2em;
+//     font-weight: 900;
+//   }
+// }
 
 /* Customize container */
 

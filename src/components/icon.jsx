@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { StaticQuery, graphql } from "gatsby"
-
 const CenteredOnTop = styled.div`
   position: absolute;
   display: block;

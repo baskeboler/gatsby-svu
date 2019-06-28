@@ -3,31 +3,44 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
+import Img from "gatsby-background-image"
 
 const Contacto = ({ data }) => (
   <Layout>
     <SEO title="Contacto" />
-    <Img fluid={data.file.childImageSharp.fluid} fadeIn={true} />
+    <Img fluid={data.file.childImageSharp.fluid} fadeIn={true}>
+      <div
+        style={{
+          position: "relative",
+          display: "block",
+          height: 400,
+          width: "100%",
+        }}
+      />
+    </Img>
     <div className="row contact-section rounded">
       <div className="col-12">
-        <form className="rounded p-4">
+        <form className="rounded p-4" netlify>
           <div className="form-group row">
             <label className="col-12 col-sm-2 col-form-label">nombre</label>
             <div className="col-12 col-sm-10">
-              <input type="text" className="form-control" />
+              <input type="text" name="nombre" className="form-control" />
             </div>
           </div>
           <div className="form-group row">
             <label className="col-12 col-sm-2 col-form-label">email</label>
             <div className="col-12 col-sm-10">
-              <input type="email" className="form-control" />
+              <input type="email" className="form-control" name="email" />
             </div>
           </div>
           <div className="form-group row">
             <label className="col-12 col-sm-2 col-form-label">mensaje</label>
             <div className="col-12 col-sm-10 col-md-6">
-              <textarea type="email" className="form-control h-100" />
+              <textarea
+                type="email"
+                className="form-control h-100"
+                name="mensaje"
+              />
             </div>
             <div className="col-12 col-md-4">
               <div className="embed-responsive embed-responsive-4by3 mt-4 mt-md-0">
@@ -44,7 +57,9 @@ const Contacto = ({ data }) => (
             </div>
           </div>
           <footer>
-            <button className="btn btn-primary px-5">Enviar</button>
+            <button className="btn btn-primary px-5" type="submit">
+              Enviar
+            </button>
           </footer>
         </form>
       </div>
@@ -57,8 +72,8 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "contacto.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800, fit: COVER, jpegProgressive: false) {
-          ...GatsbyImageSharpFluid
+        fixed(height: 400, fit: COVER, jpegProgressive: false) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
