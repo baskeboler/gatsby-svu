@@ -20,7 +20,12 @@ const Contacto = ({ data }) => (
     </Img>
     <div className="row contact-section rounded">
       <div className="col-12">
-        <form className="rounded p-4" method="post" data-netlify="true">
+        <form
+          className="rounded p-4"
+          name="contact-form"
+          method="POST"
+          data-netlify="true"
+        >
           <div className="form-group row">
             <label className="col-12 col-sm-2 col-form-label">nombre</label>
             <div className="col-12 col-sm-10">
@@ -36,11 +41,7 @@ const Contacto = ({ data }) => (
           <div className="form-group row">
             <label className="col-12 col-sm-2 col-form-label">mensaje</label>
             <div className="col-12 col-sm-10 col-md-6">
-              <textarea
-                type="email"
-                className="form-control h-100"
-                name="mensaje"
-              />
+              <textarea className="form-control h-100" name="mensaje" />
             </div>
             <div className="col-12 col-md-4">
               <div className="embed-responsive embed-responsive-4by3 mt-4 mt-md-0">
@@ -57,7 +58,11 @@ const Contacto = ({ data }) => (
             </div>
           </div>
           <footer>
-            <button className="btn btn-primary px-5" type="submit">
+            <button
+              className="btn btn-primary px-5"
+              name="submit"
+              type="submit"
+            >
               Enviar
             </button>
           </footer>
