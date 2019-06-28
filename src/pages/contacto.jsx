@@ -20,7 +20,7 @@ const Contacto = ({ data }) => (
     </Img>
     <div className="row contact-section rounded">
       <div className="col-12">
-        <form className="rounded p-4" method="post" netlify>
+        <form className="rounded p-4" method="post" data-netlify="true">
           <div className="form-group row">
             <label className="col-12 col-sm-2 col-form-label">nombre</label>
             <div className="col-12 col-sm-10">
