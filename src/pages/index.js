@@ -61,6 +61,17 @@ const IndexPage = ({ data }) => (
         </p>
       </Col>
     </Row>
+    <Row>
+      <Col md={4} xs={12}>
+        <Img fluid={data.video.childImageSharp.fluid} />
+      </Col>
+      <Col md={4} xs={12}>
+        <Img fluid={data.video.childImageSharp.fluid} />
+      </Col>
+      <Col md={4} xs={12}>
+        <Img fluid={data.video.childImageSharp.fluid} />
+      </Col>
+    </Row>
   </Layout>
 )
 
@@ -102,6 +113,13 @@ export const query = graphql`
         fixed(fit: COVER, height: 330) {
           ...GatsbyImageSharpFixed
         }
+        fluid(fit: COVER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    video: file(relativePath: { eq: "video.png" }) {
+      childImageSharp {
         fluid(fit: COVER) {
           ...GatsbyImageSharpFluid
         }
